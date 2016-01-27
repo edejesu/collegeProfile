@@ -24,11 +24,12 @@ class CollegeClass: NSObject
         numberStudents = NumberStudents
         image = Image
     }
-    init(Name: String, Location: String)
+    init(Name: String, Location: String, NumberStudents: Int)
     {
         super.init()
         name = Name
         location = Location
+        numberStudents = NumberStudents
     }
 
 }
