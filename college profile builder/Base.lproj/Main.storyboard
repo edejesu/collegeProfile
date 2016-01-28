@@ -53,10 +53,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="9zd-3R-RdC">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="z5x-FN-Ywa"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="z5x-FN-Ywa">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="BYZ-38-t0r" id="KRh-AJ-LiR"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="XK2-pF-Pa1">
                             <connections>
-                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="OAK-qG-PrX"/>
+                                <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="Mfz-Tw-0m4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

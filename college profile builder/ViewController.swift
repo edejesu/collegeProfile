@@ -16,8 +16,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var colleges : [CollegeClass] = []
     
+    override func viewWillAppear(animated: Bool)
+    {
+        myTableView.reloadData()
+    }
+    
     override func viewDidLoad()
     {
+
         super.viewDidLoad()
         myTableView.dataSource = self
         myTableView.delegate = self
@@ -26,6 +32,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         colleges.append(CollegeClass(Name: "Purdue", Location: "West Lafayette, Indiana", NumberStudents: 38770, Image: UIImage(named: "purdue")!))
         colleges.append(CollegeClass(Name: "Michigan State", Location: "East Lansing, Michigan", NumberStudents: 50085, Image: UIImage(named: "michigan state")!))
         colleges.append(CollegeClass(Name: "Iowa", Location: "Iowa City, Iowa", NumberStudents: 31387, Image: UIImage(named: "iowa")!))
+    }
+    
+    @IBAction func editButtonTapped(sender: UIBarButtonItem)
+    {
+        if editButton.tag == 0
+        {
+            myTableView.editing = true
+            editButton.tag = 1
+        }
+        else
+        {
+            myTableView.editing = false
+            editButton.tag = 0
+        }
     }
     
     @IBAction func addButtonTapped(sender: UIBarButtonItem)
