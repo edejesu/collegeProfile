@@ -28,11 +28,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myTableView.dataSource = self
         myTableView.delegate = self
         editButton.tag = 0
-        colleges.append(CollegeClass(Name: "Iowa State", Location: "Ames, Iowa", NumberStudents: 34732, Image: UIImage(named: "iowa state")!))
-        colleges.append(CollegeClass(Name: "Purdue", Location: "West Lafayette, Indiana", NumberStudents: 38770, Image: UIImage(named: "purdue")!))
-        colleges.append(CollegeClass(Name: "Michigan State", Location: "East Lansing, Michigan", NumberStudents: 50085, Image: UIImage(named: "michigan state")!))
-        colleges.append(CollegeClass(Name: "Iowa", Location: "Iowa City, Iowa", NumberStudents: 31387, Image: UIImage(named: "iowa")!))
+        colleges.append(CollegeClass(Name: "Iowa State", Location: "Ames, Iowa", NumberStudents: 34732, Image: UIImage(named: "iowa state")!, Webpage: "https://www.iastate.edu"))
+        colleges.append(CollegeClass(Name: "Purdue", Location: "West Lafayette, Indiana", NumberStudents: 38770, Image: UIImage(named: "purdue")!, Webpage: "http://www.purdue.edu"))
+        colleges.append(CollegeClass(Name: "Michigan State", Location: "East Lansing, Michigan", NumberStudents: 50085, Image: UIImage(named: "michigan state")!, Webpage: "https://msu.edu"))
+        colleges.append(CollegeClass(Name: "Iowa", Location: "Iowa City, Iowa", NumberStudents: 31387, Image: UIImage(named: "iowa")!, Webpage: "http://www.uiowa.edu"))
     }
+    
     
     @IBAction func editButtonTapped(sender: UIBarButtonItem)
     {
@@ -66,6 +67,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 (numberStudentsTextfield) -> Void in
                 numberStudentsTextfield.placeholder = "add number of students"
         }
+        myAlert.addTextFieldWithConfigurationHandler
+            {
+                (webpageTextfield) -> Void in
+            webpageTextfield.placeholder = "add webpage"
+        }
 
         var cancelAction = UIAlertAction(title: "cancel", style: UIAlertActionStyle.Cancel, handler: nil)
                 myAlert.addAction(cancelAction)
@@ -75,7 +81,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let collegeTF = myAlert.textFields![0] as UITextField
                 let locationTF = myAlert.textFields![1] as UITextField
                 let numberStudentsTF = myAlert.textFields![2] as UITextField
-                self.colleges.append(CollegeClass(Name: collegeTF.text!, Location: locationTF.text!, NumberStudents: Int(numberStudentsTF.text!)!))
+                let webpageTF = myAlert.textFields![3] as UITextField
+                self.colleges.append(CollegeClass(Name: collegeTF.text!, Location: locationTF.text!, NumberStudents: Int(numberStudentsTF.text!)!, Webpage: webpageTF.text!))
                 self.myTableView.reloadData()
         }
         myAlert.addAction(addAction)
@@ -123,7 +130,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         detailView.college = colleges[selectedRow!]
     }
     
-    }
+    
+}
     
 
     
