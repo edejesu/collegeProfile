@@ -16,6 +16,8 @@ class CollegeClass: NSObject
     var numberStudents = 0
     var image = UIImage(named: "nothing")
     var webpage = ""
+
+
     
     init(Name: String, Location: String, NumberStudents: Int, Image: UIImage, Webpage: String)
     {
@@ -25,6 +27,7 @@ class CollegeClass: NSObject
         numberStudents = NumberStudents
         image = Image
         webpage = Webpage
+
     }
     init(Name: String, Location: String, NumberStudents: Int, Webpage: String)
     {

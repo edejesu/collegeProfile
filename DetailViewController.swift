@@ -9,7 +9,9 @@
 import UIKit
 import SafariServices
 
+
 class DetailViewController: UIViewController, SFSafariViewControllerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
 {
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var nameTextfield: UITextField!
@@ -88,7 +90,7 @@ class DetailViewController: UIViewController, SFSafariViewControllerDelegate, UI
     
     @IBAction func mapButtonTapped(sender: UIButton)
     {
-        
+
     }
     
 
